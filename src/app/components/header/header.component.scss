@@ -1,0 +1,20 @@
+$container_height: 10%;
+$container_color: purple;
+
+:host {
+  display: block;
+  height: $container_height;
+  background-color: $container_color
+}
+
+.title {
+  height: 100%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  color: white;
+  font-family: 'Roboto';
+}
+

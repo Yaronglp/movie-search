@@ -1,0 +1,7 @@
+<ng-container *ngIf="movies.length > 0; else noMovies">
+  <app-card *ngFor="let movie of movies; trackBy: trackByFn" [movieDetails]="movie"></app-card>
+</ng-container>
+
+<ng-template #noMovies>
+  <h3 class="no-movies">No Movies to show</h3>
+</ng-template>

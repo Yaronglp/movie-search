@@ -1,0 +1,13 @@
+:host {
+  display: block;
+  height: 90%;
+}
+
+.search {
+  margin: 20px 0;
+  height: 30px
+}
+
+.movies {
+  height: calc(100% - 70px);
+}

@@ -1,0 +1,2 @@
+<input class="search-box" placeholder="Search something..." type="text" [(ngModel)]="searchInput" required/>
+<button class="search-btn" [class.disable-btn]="!isSearchInputExists" (click)="onSearchClick()">Search</button>

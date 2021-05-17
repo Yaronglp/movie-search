@@ -1,0 +1,25 @@
+$element-padding: 5px;
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.search-box {
+  outline: none;
+  padding: $element-padding;
+  width: 350px;
+  margin-right: 10px;
+}
+
+.search-btn {
+  cursor: pointer;
+  padding: $element-padding;
+}
+
+.disable-btn {
+  pointer-events: none;
+  opacity: 0.5;
+}
