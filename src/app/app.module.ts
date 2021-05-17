@@ -8,7 +8,6 @@ import { CharactersComponent } from './components/characters/characters.componen
 import { HeaderComponent } from './components/header/header.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { MoviesComponent } from './components/movies/movies.component';
-import { PosterComponent } from './components/poster/poster.component';
 import { SearchComponent } from './components/search/search.component';
 import { DestroyStreamComponent } from './components/destroy-stream/destroy-stream.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -24,7 +23,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     MoviesComponent,
     MovieComponent,
     CharactersComponent,
-    PosterComponent,
     SearchComponent,
     DestroyStreamComponent,
     CardComponent,
