@@ -4,10 +4,16 @@
   align-items: center;
   margin: 25px 20px;
   width: 20%;
+  padding: 20px;
+  box-shadow: 0 0 8px black;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   .title {
     margin: 5px 2px;
-    white-space: nowrap;
+    text-align: center;
   }
 
   .year {
