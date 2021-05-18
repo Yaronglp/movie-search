@@ -17,7 +17,7 @@ export class SearchComponent extends DestroyStreamComponent {
   }
 
   onSearchClick() {
-    this.searchService.getMovieByFreeText(this.searchInput).pipe(takeUntil(this.destroy$)).subscribe(() => {
+    this.searchService.getMoviesByFreeText(this.searchInput).pipe(takeUntil(this.destroy$)).subscribe(() => {
       this.resetInput()
     })
   }
