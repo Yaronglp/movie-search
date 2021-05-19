@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { IMovie } from 'src/app/model/movie.interface';
 import { EShowType } from 'src/app/model/search.enum';
 
@@ -19,6 +20,8 @@ const DEFAULT_MOVIE: IMovie = Object.freeze({
 export class CardComponent {
   @Input() movieDetails: IMovie = DEFAULT_MOVIE
 
+  constructor(private router: Router) {}
+
   get title(): string {
     return this.movieDetails.title
   }
@@ -33,5 +36,9 @@ export class CardComponent {
 
   get poster(): string {
     return this.movieDetails.poster
+  }
+
+  onClick() {
+    this.router.navigate(['movie', this.movieDetails.imdbID])
   }
 }
