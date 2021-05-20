@@ -5,13 +5,13 @@ import { IMovie } from 'src/app/model/movie.interface';
   providedIn: 'root'
 })
 export class CacheService {
-  private _searchAndMoviesMap: Map<string, IMovie[]> = new Map()
+  private _searchAndMoviesMap: Map<string, IMovie[] | IMovie> = new Map()
   
-  getSearchResult(searchVal: string): IMovie[] | undefined {
+  getSearchResult(searchVal: string): IMovie[] | IMovie | undefined {
     return this._searchAndMoviesMap.get(searchVal)
   }
 
-  setSearchResult(searchVal: string, movies: IMovie[]) {
-    this._searchAndMoviesMap.set(searchVal, movies)
+  setSearchResult(searchVal: string, data: IMovie[] | IMovie) {
+    this._searchAndMoviesMap.set(searchVal, data)
   }
 }

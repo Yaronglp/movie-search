@@ -17,6 +17,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.listenRouterChanges()
   }
+
+  onBackBtnClick() {
+    this.router.navigate([MAIN_COMPONENT_URL])
+  }
   
   private listenRouterChanges() {
     this.router.events.subscribe((routerEvent: any) => {

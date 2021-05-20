@@ -1,6 +1,10 @@
 import { IMovie } from "../model/movie.interface";
 import { removeEmptyPropsFromObject } from "./utils";
 
+export const convertMovie = (movie: any): IMovie[] => {
+  return [convertMovieSearch(movie)]
+}
+
 export const convertMovies = (movies: any[]): IMovie[] => {
   if (movies?.length === 0) {
     return []
