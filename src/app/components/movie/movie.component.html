@@ -1,1 +1,5 @@
-{{movie | json}}
+<img *ngIf="!!posterSrc" class="poster" [src]="posterSrc"/>
+<div class="line" *ngFor="let detail of movieMap | keyvalue">
+  <span class="type">{{detail.key}}:</span>
+  <span class="value">{{detail.value}}</span>
+</div>

@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
   private listenRouterChanges() {
     this.router.events.subscribe((routerEvent: any) => {
       if (routerEvent instanceof NavigationEnd) {
-        this.showBackToDashboard = routerEvent.url !== MAIN_COMPONENT_URL
+        this.showBackToDashboard = routerEvent.urlAfterRedirects !== MAIN_COMPONENT_URL
         this.cdr.markForCheck()
       }
     })

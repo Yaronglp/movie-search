@@ -3,8 +3,16 @@ $container_color: purple;
 
 :host {
   display: block;
+  position: relative;
   height: $container_height;
   background-color: $container_color
+}
+
+.back-btn {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
 }
 
 .title {
