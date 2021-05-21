@@ -1,5 +1,10 @@
-<img *ngIf="!!posterSrc" class="poster" [src]="posterSrc"/>
-<div class="line" *ngFor="let detail of movieMap | keyvalue">
+<div class="main-details">
+  <h1>{{title}}</h1>
+  <img *ngIf="!!poster" class="poster" [src]="poster"/>
+  <h3>IMDB Rating: <span class="rating">{{rating}}</span></h3>
+</div>
+
+<div class="line" *ngFor="let detail of generalDetailsMap | keyvalue">
   <span class="type">{{detail.key}}:</span>
   <span class="value">{{detail.value}}</span>
 </div>

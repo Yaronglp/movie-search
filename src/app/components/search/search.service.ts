@@ -5,6 +5,7 @@ import { IMovie } from 'src/app/model/movie.interface';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { convertMovie, convertMovies } from 'src/app/common/backendToFrontConverter';
 import { CacheService } from 'src/app/common/services/cache.service';
+import { EPlot } from 'src/app/model/search.enum';
 
 const API_URL = "http://www.omdbapi.com/"
 
@@ -53,7 +54,7 @@ export class SearchService {
       return of(movieInCache as IMovie)
     }
 
-    const paramsToAddToURL = `i=${id}`
+    const paramsToAddToURL = `i=${id}&plot=${EPlot.FULL}`
     
     return this.getMovies(paramsToAddToURL).pipe(switchMap((movies: IMovie[]) => of(movies[0])), tap((movie: IMovie) => {
         this.cacheService.setSearchResult(id, movie)

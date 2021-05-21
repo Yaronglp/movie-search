@@ -11,8 +11,10 @@ import { DestroyStreamComponent } from '../destroy-stream/destroy-stream.compone
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MovieComponent extends DestroyStreamComponent implements OnInit {
-  movieMap: Map<string, string> = new Map()
-  posterSrc: string | null = null
+  title: string = ''
+  poster: string = ''
+  rating: string = ''
+  generalDetailsMap: Map<string, string> = new Map()
 
   constructor(private activatedRoute: ActivatedRoute) { 
     super()
@@ -20,13 +22,18 @@ export class MovieComponent extends DestroyStreamComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.data.pipe(takeUntil(this.destroy$)).subscribe(({ movieDetails }) => {
-      this.posterSrc = movieDetails.poster
+      this.title = movieDetails.title
+      this.poster = movieDetails.poster
+      this.rating = movieDetails.imdbRating
 
       for (const key in movieDetails) {
-        if(key !== 'poster') {
-          this.movieMap.set(key, movieDetails[key])
-        }
+        this.generalDetailsMap.set(key, movieDetails[key])
       }
+
+      this.generalDetailsMap.delete('title')
+      this.generalDetailsMap.delete('poster')
+      this.generalDetailsMap.delete('imdbRating')
+      this.generalDetailsMap.delete('imdbID')
     })
   }
 }

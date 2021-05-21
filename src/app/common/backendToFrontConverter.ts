@@ -26,13 +26,14 @@ const convertMovieSearch = (dataFromBackend: any): IMovie => {
     type: dataFromBackend.Type,
     poster: dataFromBackend.Poster,
     imdbID: dataFromBackend.imdbID,
+    imdbRating: dataFromBackend.imdbRating,
     released: dataFromBackend.Released,
     runtime: dataFromBackend.Runtime,
     genre: dataFromBackend.Genre,
     actors: dataFromBackend.Actors,
     plot: dataFromBackend.Plot,
     country: dataFromBackend.Country,
-    rating: dataFromBackend.Rating
+    totalSeasons: dataFromBackend.totalSeasons
   }
 
   return removeEmptyPropsFromObject(movie)

@@ -17,5 +17,6 @@ export interface IMovie {
   actors?: string
   plot?: string
   country?: string
-  rating?: IRating[]
+  imdbRating?: string,
+  totalSeasons?: string
 }
