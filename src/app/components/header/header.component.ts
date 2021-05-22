@@ -11,6 +11,7 @@ const MAIN_COMPONENT_URL = '/dashboard'
 })
 export class HeaderComponent implements OnInit {
   showBackToDashboard: boolean = false
+  readonly omdbURL: string = 'https://www.omdbapi.com/'
 
   constructor(private router: Router, private cdr: ChangeDetectorRef) { }
 

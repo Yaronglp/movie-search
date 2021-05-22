@@ -33,7 +33,7 @@ const convertMovieSearch = (dataFromBackend: any): IMovie => {
     actors: dataFromBackend.Actors,
     plot: dataFromBackend.Plot,
     country: dataFromBackend.Country,
-    totalSeasons: dataFromBackend.totalSeasons
+    seasons: dataFromBackend.totalSeasons
   }
 
   return removeEmptyPropsFromObject(movie)

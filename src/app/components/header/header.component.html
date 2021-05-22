@@ -1,2 +1,3 @@
-<button class="back-btn" *ngIf="showBackToDashboard" (click)="onBackBtnClick()">Go back to Search</button>
+<button class="btn back-btn" *ngIf="showBackToDashboard" (click)="onBackBtnClick()">Go back to Search</button>
 <h2 class="title">Movie Search</h2>
+<a class="btn api-hyperlink" [href]="omdbURL" target="_blank">OMDB site</a>

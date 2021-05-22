@@ -5,6 +5,6 @@
 </div>
 
 <div class="line" *ngFor="let detail of generalDetailsMap | keyvalue">
-  <span class="type">{{detail.key}}:</span>
+  <span class="type">{{detail.key | titlecase}}:</span>
   <span class="value">{{detail.value}}</span>
 </div>

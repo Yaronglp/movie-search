@@ -8,11 +8,24 @@ $container_color: purple;
   background-color: $container_color
 }
 
-.back-btn {
+.btn {
   position: absolute;
   top: 50%;
-  left: 5%;
   transform: translateY(-50%);
+}
+
+.back-btn {
+  left: 5%;
+  padding: 5px;
+}
+
+.api-hyperlink {
+  right: 5%;
+  color: white;
+
+  &:hover {
+    font-weight: bold;
+  }
 }
 
 .title {
