@@ -1,2 +1,10 @@
-<app-search class="search"></app-search>
-<app-movies class="movies"></app-movies>
+<app-search class="search" (searchFailure)="showErrorMsg($event)"></app-search>
+<div *ngIf="isErrorOccur; else movies" class="error">
+  Oops...<br>
+  Something went wrong :O<br>
+  Please try again !<br>
+</div>
+
+<ng-template #movies>
+  <app-movies class="movies"></app-movies>
+</ng-template>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { DestroyStreamComponent } from '../destroy-stream/destroy-stream.component';
 import { SearchService } from './search.service';
 import { takeUntil } from 'rxjs/operators'
@@ -10,6 +10,8 @@ import { takeUntil } from 'rxjs/operators'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchComponent extends DestroyStreamComponent {
+  @Output() searchFailure = new EventEmitter<boolean>()
+
   searchInput: string = ''
 
   constructor(private searchService: SearchService, private cdr: ChangeDetectorRef) { 
@@ -18,7 +20,10 @@ export class SearchComponent extends DestroyStreamComponent {
 
   onSearchClick() {
     this.searchService.getMoviesByFreeText(this.searchInput).pipe(takeUntil(this.destroy$)).subscribe(() => {
+      this.searchFailure.next(false)
       this.resetInput()
+    }, () => {
+      this.searchFailure.next(true)
     })
   }
 

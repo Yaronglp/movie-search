@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,4 +6,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DashboardComponent {}
+export class DashboardComponent {
+  isErrorOccur: boolean = false
+
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  showErrorMsg(showNeeded: boolean) {
+    this.isErrorOccur = showNeeded
+    this.cdr.detectChanges()
+  }
+}
