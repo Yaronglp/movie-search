@@ -5,10 +5,10 @@ import { IMovie } from 'src/app/model/movie.interface';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { convertMovie, convertMovies } from 'src/app/common/backendToFrontConverter';
 import { CacheService } from 'src/app/common/services/cache.service';
-import { EPlot } from 'src/app/model/search.enum';
+import { EPlot, EShowType } from 'src/app/model/search.enum';
 
 const API_URL = "http://www.omdbapi.com/"
-
+const AVAILABLE_SHOW_TYPE_ARR = [EShowType.EPISODE, EShowType.SERIES, EShowType.MOVIE]
 interface IAPIResponse {
   Search: IMovie[]
   Response: ESearchResponseStatus
@@ -84,6 +84,9 @@ export class SearchService {
   }
 
   private getMoviesList(response: IAPIResponse): IMovie[] {
-    return response.Search ? convertMovies(response.Search) : convertMovie(response)
+    const movies = response.Search ? convertMovies(response.Search) : convertMovie(response)
+    const filteredMovies = movies.filter(({ type }) => AVAILABLE_SHOW_TYPE_ARR.includes(type))
+
+    return filteredMovies
   }
 }
