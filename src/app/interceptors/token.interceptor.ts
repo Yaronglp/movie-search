@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const OMDB_API_KEY = "ea59b35b"
+const OMDB_API_KEY = "__YOUR_API_KEY__"
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
